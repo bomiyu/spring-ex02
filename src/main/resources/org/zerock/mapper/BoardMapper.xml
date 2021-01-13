@@ -18,14 +18,35 @@
 	</insert>
 
 	<insert id="insertSelectKey">
-		<selectKey keyProperty="bno" order="BEFORE" resultType="long">
+		<selectKey keyProperty="bno" order="BEFORE"
+			resultType="long">
 			select seq_board.nextval from dual
 		</selectKey>
-		
+
 		insert into tbl_board(bno, title, content,writer)
 		values (#{bno}, #{title}, #{content}, #{writer})
 	</insert>
 
+
+	<select id="read" resultType="org.zerock.domain.BoardVO">
+		select * from tbl_board where bno =
+		#{bno}
+	</select>
+
+	<delete id="delete">
+		delete from tbl_board where bno = #{bno}
+	</delete>
+
+	<update id="update">
+		UPDATE tbl_board
+		SET
+		title = #{title},
+		content = #{content},
+		writer = #{writer},
+		updateDate = sysdate
+		WHERE
+		bno = #{bno}
+	</update>
 </mapper>
 
 
