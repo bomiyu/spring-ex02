@@ -22,5 +22,8 @@ public class CommentServiceImpl implements CommentService{
 		return mapper.getList();
 	}
 
-	
+	@Override
+	public CommentVO get(Long cno) {
+		return mapper.read(cno);
+	}
 }
