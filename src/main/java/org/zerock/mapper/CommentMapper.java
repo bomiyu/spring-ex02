@@ -13,10 +13,10 @@ public interface CommentMapper {
 
 
 	public CommentVO read(Long cno);
-//
-//	public int delete(Long cno);
-//
-//	public int update(CommentVO board);
-//
-//	public int modify(CommentVO board);
+
+
+	public int update(CommentVO board);
+
+
+	public int delete(Long cno);
 }
