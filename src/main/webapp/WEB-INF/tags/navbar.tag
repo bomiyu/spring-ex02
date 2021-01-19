@@ -12,6 +12,7 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="${root }/board/list">목록 <span class="sr-only">(current)</span></a>
+
       </li>
       <li class="nav-item">
         <a class="nav-link" href="${root }/board/register">글쓰기</a>
