@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -85,7 +86,8 @@ public class BoardController {
 	
 	// 표: /board/read, 코드: /board/get
 	@GetMapping({"/get", "/modify"})
-	public void get(@RequestParam("bno") Long bno, Model model) {
+	public void get(@RequestParam("bno") Long bno,
+			@ModelAttribute("cri") Criteria cri, Model model) {
 		/** 예전 코드 (스프링 없이) 
 		String boardNum = request.getParameter("num");
 		int num = Integer.parseInt(boardNum);
@@ -98,8 +100,10 @@ public class BoardController {
 		*/
 		
 		log.info("get method - bno: " + bno);
+		log.info(cri);
 		BoardVO vo = service.get(bno);
 		model.addAttribute("board", vo);
+//		model.addAttribute("cri", cri);
 	}
 	
 	/*
@@ -111,7 +115,7 @@ public class BoardController {
 	*/
 	
 	@PostMapping("/modify")
-	public String modify(BoardVO board, RedirectAttributes rttr) {
+	public String modify(BoardVO board, Criteria cri, RedirectAttributes rttr) {
 		/** 스프링 없이
 		BoardVO board = new BoardVO();
 		board.setBno(request.getParameter("bno"));
@@ -123,6 +127,9 @@ public class BoardController {
 			rttr.addFlashAttribute("result", "success");
 			rttr.addFlashAttribute("message", board.getBno() + "번 글이 수정되었습니다.");
 		}
+		log.info(cri);
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
 		
 		return "redirect:/board/list";
 	}
