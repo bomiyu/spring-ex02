@@ -48,7 +48,7 @@ public class BoardController {
 	*/
 	
 	@GetMapping("/list")
-	public void list(Criteria cri, Model model) {
+	public void list(@ModelAttribute("cri") Criteria cri, Model model) {
 		List<BoardVO> list = service.getList(cri);
 		
 		int total = service.getTotal(cri);
@@ -60,7 +60,7 @@ public class BoardController {
 	}
 	
 	@GetMapping("/register")
-	public void register() {
+	public void register(@ModelAttribute("cri") Criteria cri) {
 		
 	}
 	
@@ -154,12 +154,16 @@ public class BoardController {
 	}
 	
 	@PostMapping("/remove")
-	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr) {
+	public String remove(@RequestParam("bno") Long bno,
+			Criteria cri, RedirectAttributes rttr) {
 		
 		if (service.remove(bno)) {
 			rttr.addFlashAttribute("result", "success");
 			rttr.addFlashAttribute("message", bno + "번 글이 삭제되었습니다.");
 		}
+		
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
 		
 		return "redirect:/board/list";
 	}
