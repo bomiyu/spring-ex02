@@ -187,6 +187,31 @@ public class MyBatisEx1MapperTests {
 		
 		mapper.select7(cri);
 	}
+	
+	@Test
+	public void testSelect8Ex1() {
+		List<String> list = new ArrayList<String>();
+		list.add("java");
+		list.add("tomcat");
+		list.add("linux");
+
+		Ex1Criteria cri = new Ex1Criteria();
+		cri.setMylist(list);
+		
+		mapper.select8(cri);
+	}
+	@Test
+	public void testSelect9Ex1() {
+		List<String> list = new ArrayList<String>();
+		list.add("java");
+		list.add("tomcat");
+		list.add("linux");
+
+		Ex1Criteria cri = new Ex1Criteria();
+		cri.setMylist(list);
+		
+		mapper.select9(cri);
+	}
 }
 
 

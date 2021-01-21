@@ -7,15 +7,15 @@
 	<select id="select1" resultType="int">
 <![CDATA[
 		select * from tbl_board
-]]>		
+]]>
 		<if test="bno != 0">
 			where bno = #{bno}
 		</if>
 	</select>
-	
+
 	<select id="select2" resultType="int">
 		SELECT * FROM tbl_board
-		
+
 		<if test="type == 'title'">
 			WHERE title = #{keyword}
 		</if>
@@ -26,12 +26,12 @@
 			WHERE writer = #{keyword}
 		</if>
 	</select>
-	
+
 	<select id="select3" resultType="int">
 		SELECT * FROM tbl_board
-		
+
 		<if test="type == 'T'.toString()">
-		    WHERE title LIKE '%' || #{keyword} || '%'
+			WHERE title LIKE '%' || #{keyword} || '%'
 		</if>
 		<if test="type == 'C'.toString()">
 			WHERE content LIKE '%' || #{keyword} || '%'
@@ -40,7 +40,7 @@
 			WHERE writer LIKE '%' || #{keyword} || '%'
 		</if>
 	</select>
-	
+
 	<select id="select4" resultType="int">
 		SELECT * FROM tbl_board
 		WHERE
@@ -58,8 +58,8 @@
 				bno > 0
 			</otherwise>
 		</choose>
-	</select>	
-	
+	</select>
+
 	<select id="select5" resultType="int">
 		SELECT * FROM tbl_board
 		<where>
@@ -67,28 +67,49 @@
 				<when test="type == 'title'">
 					title = #{keyword}
 				</when>
-				<when test="type == 'content'" >
+				<when test="type == 'content'">
 					content = #{keyword}
 				</when>
 			</choose>
 		</where>
 	</select>
-	
+
 	<select id="select6" resultType="int">
 		SELECT * FROM tbl_board
 		<foreach item="myitem" collection="mylist">
 			#{myitem},
 		</foreach>
 	</select>
-	
+
 	<select id="select7" resultType="int">
 		SELECT * FROM tbl_board
-		
+
 		<foreach item="myval" index="myidx" collection="mymap">
-			(#{myidx}, #{myval}) , 
+			(#{myidx},
+			#{myval}) ,
+		</foreach>
+	</select>
+	<select id="select8" resultType="int">
+		SELECT * FROM tbl_board
+		<foreach item="item" collection="mylist">
+			<trim suffix="AND">
+				#{item}
+			</trim>
 		</foreach>
 	</select>
 	
+	
+	<select id="select9" resultType="int">
+		SELECT * FROM tbl_board
+		<trim suffixOverrides="AND">
+			<foreach item="item" collection="mylist">
+				<trim suffix="AND">
+					#{item}
+				</trim>
+			</foreach>
+		</trim>
+	</select>
+
 </mapper>
 
 
