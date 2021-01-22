@@ -73,8 +73,8 @@
 					<c:param name="bno" value="${board.bno }"></c:param>
 					<c:param name="pageNum" value="${cri.pageNum }"></c:param>
 					<c:param name="amount" value="${cri.amount }"></c:param>
-					<c:param name="type" value="${pageMaker.cri.type }" />
-					<c:param name="keyword" value="${pageMaker.cri.keyword }" />
+					<c:param name="type" value="${cri.type }" />
+					<c:param name="keyword" value="${cri.keyword }" />
 				</c:url>
 				<a href="${modifyLink }" class="btn btn-secondary"> 수정 </a>
 
