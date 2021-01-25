@@ -15,4 +15,9 @@ public class Ex1Criteria {
 	private List<String> mylist;
 	private Map<String, String> mymap;
 	
+	
 }
+
+
+
+

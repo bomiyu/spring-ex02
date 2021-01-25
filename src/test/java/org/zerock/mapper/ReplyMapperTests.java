@@ -21,7 +21,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class ReplyMapperTests {
 	
-	private Long[] bnoArr = {204L, 205L, 206L, 208L, 241L};
+	private Long[] bnoArr = {229L, 230L, 231L, 232L, 234L};
 	
 	@Setter(onMethod_ = @Autowired)
 	private ReplyMapper mapper;
@@ -32,12 +32,30 @@ public class ReplyMapperTests {
 	}
 	
 	@Test
+	public void testDelete() {
+		Long rno = 25L;
+		mapper.delete(rno);
+	}
+	
+	@Test
+	public void testUpdate() {
+		ReplyVO vo = new ReplyVO();
+		vo.setRno(37L);
+		vo.setReply("수정되었당!~!");
+		mapper.update(vo);
+		
+		vo = mapper.read(37L);
+		
+		assertEquals("수정되었당!~!", vo.getReply());
+	}
+	
+	@Test
 	public void testRead() {
-		Long rno = 6L;
+		Long rno = 37L;
 		
 		ReplyVO vo = mapper.read(rno);
 		
-		assertEquals("댓글 테스트1", vo.getReply());
+		assertEquals("댓글 테스트", vo.getReply());
 	}
 	
 	@Test // 책 383쪽
@@ -59,14 +77,14 @@ public class ReplyMapperTests {
 	public void testCreate2() {
 		ReplyVO vo = new ReplyVO();
 		// vo.setRno(rno);
-		vo.setBno(230L); // tbl_board 테이블에 있는 값으로 넣으세요.
+		vo.setBno(234L); // tbl_board 테이블에 있는 값으로 넣으세요.
 		vo.setReply("댓글 테스트");
 		vo.setReplyer("user00");
 		
 		mapper.insert(vo);
 		
 		try {
-			vo.setBno(240L); // tbl_board 테이블에 없는 값
+			vo.setBno(210L); // tbl_board 테이블에 없는 값
 			mapper.insert(vo);
 			fail();
 		} catch (Exception e) {
