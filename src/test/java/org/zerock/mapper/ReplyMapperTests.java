@@ -59,7 +59,7 @@ public class ReplyMapperTests {
 	public void testCreate2() {
 		ReplyVO vo = new ReplyVO();
 		// vo.setRno(rno);
-		vo.setBno(241L); // tbl_board 테이블에 있는 값으로 넣으세요.
+		vo.setBno(230L); // tbl_board 테이블에 있는 값으로 넣으세요.
 		vo.setReply("댓글 테스트");
 		vo.setReplyer("user00");
 		
