@@ -45,12 +45,11 @@ public class RestControllerEx2 {
 		return res;
 	}
 	
-	
 	@RequestMapping("/ex4")
 	public Rest1 method4() {
 		
 		// 전송, 수신 방법이 http(HyperText Transper Protocol)
-		log.info("method3");
+		log.info("method4");
 		
 		Rest1 r = new Rest1();
 		r.setName("donald");
@@ -64,7 +63,7 @@ public class RestControllerEx2 {
 		Rest2 r2 = new Rest2();
 		r2.setAddress("seoul");
 		
-		Rest1 r1  = new Rest1();
+		Rest1 r1 = new Rest1();
 		r1.setName("jeju");
 		r1.setAge(100);
 		r1.setVote(true);
@@ -73,6 +72,15 @@ public class RestControllerEx2 {
 		
 		return r2;
 	}
+	
+	@RequestMapping("/ex6")
+	public String[] method6() {
+		String[] arr = {"java", "json", "xml"};
+		
+		return arr;
+	}
+	
+	
 }
 
 
