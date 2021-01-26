@@ -1,5 +1,6 @@
 package org.zerock.controller;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +16,14 @@ public class RestControllerEx3 {
 		log.info("name:" + name);
 		
 		return "spring";
+	}
+	
+	@RequestMapping("/ex2/{val}")
+	public String method2(@PathVariable("val") String value) {
+		log.info("method2");
+		log.info(value);
+		
+		return "method2";
 	}
 }
 
