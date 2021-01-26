@@ -1,5 +1,6 @@
 package org.zerock.controller;
 
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -35,9 +36,9 @@ public class SampleController {
 	}
 	
 	@GetMapping(value = "/getList")
-	public list<SampleVO> getList(){
+	public List<SampleVO> getList(){
 		
-		return IntStream.range(1, 10).mapToObj(i -> new SampleVO(i,i+"First", i+"Last")).collect(Collectors.toList()));
+		return IntStream.range(1, 10).mapToObj(i -> new SampleVO(i,i+"First", i+"Last")).collect(Collectors.toList());
 	}
 	
 }
