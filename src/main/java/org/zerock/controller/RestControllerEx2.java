@@ -1,5 +1,11 @@
 package org.zerock.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.zerock.domain.Rest1;
@@ -80,7 +86,52 @@ public class RestControllerEx2 {
 		return arr;
 	}
 	
+	@RequestMapping("/ex7")
+	public List<String> method7() {
+		List<String> list = new ArrayList<>();
+		list.add("hello");
+		list.add("world");
+		list.add("spring");
+		
+		return list;
+	}
 	
+	@RequestMapping("/ex8")
+	public Map<String, String> method8(){
+		Map<String, String> map  = new HashMap<>();
+		map.put("java", "script");
+		map.put("hello", "world");
+		map.put("spring", "boot");
+		
+		return map;
+	}
+	
+	@RequestMapping("/ex9")
+		public List<Rest1> method9(){
+			List<Rest1> list = new ArrayList<>();
+			
+			Rest1 r1 = new 	Rest1();
+			r1.setName("trump");
+			r1.setAge(33);
+			r1.setVote(true);
+			
+			list.add(r1);
+			
+			Rest1 r2 = new Rest1();
+			r2.setName("donald");
+			r2.setAge(22);
+			r2.setVote(false);
+			
+			list.add(r2);
+			
+			return list;
+			
+	}
+	
+	@RequestMapping("/ex10")
+	public ResponseEntity<String> method10(){
+		return ResponseEntity.status(200).body("hello");
+	}
 }
 
 
