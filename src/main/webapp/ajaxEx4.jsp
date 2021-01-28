@@ -52,28 +52,22 @@
 				type : "post",
 				url : "/replies/new",
 				contentType : "application/json",
-				data : '{"bno":230,"reply":"새댓글입니당","replyer":"user01" }',
-				success: function(data, status, xhr){
-						console.log("성공공공");
-						//console.log(jqXHR.responseText);
-						console.log(data);
-				},
-					error: function(){
-						console.log("실패패패");
-					}
-			
+				data : '{"bno":230,"reply":"새댓글입니당","replyer":"user01" }'
+			}).done(function(data, status, xhr) {
+				console.log("성공공공");
+				//console.log(jqXHR.responseText);
+				console.log(data);
+			}).fail(function(data, status, xhr){
+				console.log("실패패패");
 			});
 		});
 		$("#btn-4").click(function() {
 			$.ajax({
 				type : "get",
 				url : "/replies/pages/231/1",
-				contentType : "application/json",
-				success: function(data, status, xhr){
-					console.log(data);
-			}
-				
-				
+				contentType : "application/json"
+			}).done(function(data, status, xhr){
+				console.log(data);
 			});
 		});
 		$("#btn-5").click(function() {
@@ -81,35 +75,27 @@
 				type : "PUT",
 				url : "/replies/35",
 				contentType : "application/json",
-				data : '{"reply":"업데이트~~","replyer":"user01" }',
-				success: function(data, status, xhr){
-					console.log("업데이트 성공공공~~");
+				data : '{"reply":"업데이트~~","replyer":"user01" }'
+			}).done(function(data, status, xhr){
+				console.log("업데이트 성공공공~~");
 				//	console.log(jqXHR.responseText);
 					console.log(data);
-			},
-				error: function(){
-					console.log("업데이트 실패패패");
-				}
-				
-				
+			}).fail(function(data, status, xhr){
+				console.log("업데이트 실패패패");
 			});
 		});
 		
 		$("#btn-6").click(function() {
 			$.ajax({
 				type : "delete",
-				url : "/replies/49",
-				contentType : "application/json",
-				success: function(data, status, xhr){
-					console.log("삭제 성공!!");
+				url : "/replies/31",
+				contentType : "application/json"
+			}).done(function(data, status, xhr){
+				console.log("삭제 성공!!");
 				//	console.log(jqXHR.responseText);
 				console.log(data);
-			},
-				error: function(){
-					console.log("삭제 실패!!");
-				}
-				
-				
+			}).fail(function(data, status, xhr){
+				console.log("삭제 실패!!");
 			});
 		});
 
