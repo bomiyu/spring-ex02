@@ -114,7 +114,7 @@
 
 </head>
 <body>
-	<h1>ajax ex2</h1>
+	<h1>ajax ex3</h1>
 
 	<div>
 		<button id="btn-1">댓글 등록</button>

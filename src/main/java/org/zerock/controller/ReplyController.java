@@ -76,6 +76,7 @@ public class ReplyController {
 		
 		int cnt = service.remove(rno);
 		log.info(cnt);
+		
 		if (cnt == 1) {
 			return new ResponseEntity<>("success", HttpStatus.OK);
 		} else {
