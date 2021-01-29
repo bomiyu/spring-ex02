@@ -8,7 +8,7 @@ var replyService = (function() {
 		
 		$.ajax({
 			type: "post",
-			url: "/replies/new",  // context root로 변경
+			url:  appRoot + "/replies/new",  // context root로 변경
 			data: JSON.stringify(reply),     // form data를 json
 			contentType: "application/json; charset=utf-8",
 			success: function(result, stauts, xhr) {
@@ -31,7 +31,7 @@ var replyService = (function() {
 		// javascript 
 		// boolean false : 0, "", null, undefined
 		
-		$.getJSON("/replies/pages/" + bno + "/" + page, function(data) {
+		$.getJSON(" appRoot + /replies/pages/" + bno + "/" + page, function(data) {
 			if (callback) {
 				callback(data);
 			}
@@ -42,10 +42,11 @@ var replyService = (function() {
 		});
 	}
 	
+	
 	function remove(rno, callback, error) {
 		$.ajax({
 			type: 'delete',
-			url: '/replies/' + rno,
+			url:  appRoot + '/replies/' + rno,
 			success: function(result, status, xhr) {
 				if (callback) {
 					callback(result);
@@ -58,24 +59,43 @@ var replyService = (function() {
 			}
 		});
 	}
-	
-	function update(reply, callback, error){
+		function update(reply, callback, error) {
 		$.ajax({
 			type: 'put',
-			url: '/replies/' + reply.rno,
+			url:  appRoot + '/controller/replies/' + reply.rno,
 			data: JSON.stringify(reply),
 			contentType: 'application/json; charset=utf-8',
-			success: function(result, status, xhr){
-				if(callback){
+			success: function(result, status, xhr) {
+				if (callback) {
 					callback(result);
 				}
 			},
-			error: function(xhr, status, er){
-				if(error){
+			error: function(xhr, status, er) {
+				if (error) {
 					error(er);
 				}
 			}
 		});
 	}
-f
+		
+	function get(rno, callback, error) {
+		$.get(appRoot + '/replies/' + rno, function(data) {
+			if (callback) {
+				callback(data);
+			}
+		}).fail(function() {
+			if (error) {
+				error();
+			}
+		});
+	}
+	return {
+//		name:"AAAA",
+		add: add,
+		getList: getList,
+		remove: remove,
+		update: update,
+		get: get
+	};
+})();
 

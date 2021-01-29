@@ -6,6 +6,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script>
+	var appRoot = '${root}';
+</script>
 <meta charset="UTF-8">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -27,39 +30,47 @@
 	 }, function(err){
 	 console.log(err);
 	 }); */
+	/* 
+	 replyService.getList({
+	 bno : 234,
+	 page : 1
+	 }, function(data) {
+	 console.log(data);
+	 }, function() {
+	 console.log("error");
+	 }); 
+	 */
+	/* 	replyService.remove(32, function(data) {
+	 console.log(data);
+	 }, function(err) {
+	 console.log(err);
+	 }) */
 
-	replyService.getList({
-		bno : 234,
-		page : 1
-	}, function(data) {
-		console.log(data);
-	}, function() {
-		console.log("error");
-	}); 
-	
-/* 	replyService.remove(32, function(data) {
-		console.log(data);
-	}, function(err) {
-		console.log(err);
-	}) */
-	
-/* 	replyService.update(
-			{rno: 37, reply:'또 수정됨^_^'},
-		function(data){
-		console.log(data);
-	}, function(err){
-		console.log(err);
-	});
+	/* 	replyService.update(
+	 {rno: 37, reply:'또 수정됨^_^'},
+	 function(data){
+	 console.log(data);
+	 }, function(err){
+	 console.log(err);
+	 });
 	 */
 
-	 replyServices.get(
-		37, function(data){
-			console.log(data)
-		});
-	 
-	 
+	/* replyService.get(37, function(data) {
+		console.log(data);
+	}); */
+	
+	</script>
+	
+	
+<script>
 
+	$(document).ready(function() {
+		replyService.getList({bno: ${board.bno}}, function(list) {
+			console.log(list);
+		});
+	});
 </script>
+
 
 <title>Insert title here</title>
 </head>
@@ -122,6 +133,56 @@
 				</c:url>
 				<a href="${modifyLink }" class="btn btn-secondary"> 수정 </a>
 
+			</div>
+		</div>
+	</div>
+
+<!--댓글목록container-->
+
+	<div clsd="container-sm mt-3">
+		<div class="row">
+			<div class="col-12 col-sm-6 offset-sm-3 ">
+
+				<div class="card">
+					<div class="card-header">댓글 목록~</div>
+					<div class="card-body">
+						<ul class="list-unstyled">
+						
+						<!-- 하나의 댓글이 하나의 li -->
+							<li class="media">
+								<div class="media-body">
+									<h5>user00 <small>2021/01/29</small></h5>
+									댓글 본문ㅋㅋㅋㅋㅋㅋㅋㅋ
+									<hr>
+								</div>
+							</li>
+							
+							<li class="media">
+								<div class="media-body">
+									<h5>user00  <small>2021/01/29</small></h5>
+									댓글 본문ㅋㅋㅋㅋㅋㅋㅋㅋ
+									<hr>
+								</div>
+							</li>
+							<li class="media">
+								<div class="media-body">
+									<h5>user00  <small>2021/01/29</small></h5>
+									댓글 본문ㅋㅋㅋㅋㅋㅋㅋㅋ
+									<hr>
+								</div>
+							</li>
+							<li class="media">
+								<div class="media-body">
+									<h5>user00  <small>2021/01/29</small> </h5>
+									댓글 본문ㅋㅋㅋㅋㅋㅋㅋㅋ
+									<hr>
+								</div>
+							</li>
+						</ul>
+
+					</div>
+
+				</div>
 			</div>
 		</div>
 	</div>
