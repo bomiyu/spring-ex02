@@ -77,18 +77,5 @@ var replyService = (function() {
 			}
 		});
 	}
-
-	return {
-//		name:"AAAA",
-		add: add,
-		getList: getList,
-		remove: remove,
-		update: update
-	};
-})();
-
-
-
-
-
+f
 

@@ -52,6 +52,12 @@
 	});
 	 */
 
+	 replyServices.get(
+		37, function(data){
+			console.log(data)
+		});
+	 
+	 
 
 </script>
 
