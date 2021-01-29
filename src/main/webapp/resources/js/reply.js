@@ -31,7 +31,7 @@ var replyService = (function() {
 		// javascript 
 		// boolean false : 0, "", null, undefined
 		
-		$.getJSON(" appRoot + /replies/pages/" + bno + "/" + page, function(data) {
+		$.getJSON(appRoot + "/replies/pages/" + bno + "/" + page, function(data) {
 			if (callback) {
 				callback(data);
 			}
@@ -62,7 +62,7 @@ var replyService = (function() {
 		function update(reply, callback, error) {
 		$.ajax({
 			type: 'put',
-			url:  appRoot + '/controller/replies/' + reply.rno,
+			url:  appRoot + '/replies/' + reply.rno,
 			data: JSON.stringify(reply),
 			contentType: 'application/json; charset=utf-8',
 			success: function(result, status, xhr) {
