@@ -9,6 +9,8 @@
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
+	<!--  메이븐은 설정 파일에서 발생하는 중복 설정을 제거하기 위하여 속성 (<properties/> 엘리먼트)을 정의하고 설정 파일 전체에서 사용할 수 있다.
+	의존 관계 중복을 제거하려면 다음과 같이 설정할 수 있다(개발자 정의 속성_예를들어 <org.springframework-version/>로 프로퍼티에서 정의하고 ${org.springframework-version}로 접근가능하다)-->
 		<java-version>1.8</java-version>
 		<org.springframework-version>5.0.7.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
@@ -28,9 +30,10 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
+		<dependency> 
+			<groupId>org.springframework</groupId> 
+			<!--Spring-webmvc: Spring mvc 프로젝트를 하기위해선 추가해야할 기본적인 dependency이다.-->
+			<artifactId>spring-webmvc</artifactId> 
 			<version>${org.springframework-version}</version>
 		</dependency>
 
@@ -84,12 +87,14 @@
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
+			<!-- javax.servlet-api: servlet dependency 이다. -->
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
+			<!-- javax.servlet.jsp-api: JSP dependency 이다. -->
 			<artifactId>jsp-api</artifactId>
 			<version>2.1</version>
 			<scope>provided</scope>
@@ -103,6 +108,7 @@
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
+			<!-- jUnit: unit 테스트를 하기위한 dependency이다. -->
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
@@ -147,6 +153,7 @@
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
 		<dependency>
 			<groupId>org.springframework</groupId>
+			<!-- spring-tx: spring transaction을 사용하기위한 dependency이다.-->
 			<artifactId>spring-tx</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
@@ -169,6 +176,7 @@
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
+			<!-- com.fasterxml.jackson.core: Json converter 로 RESTful api를 작성할때 json데이터를 변환하고 결과를 json 데이터로 전송해주기 위해 필요한 dependency이다.  -->
 			<artifactId>jackson-databind</artifactId>
 			<version>2.9.6</version>
 		</dependency>
