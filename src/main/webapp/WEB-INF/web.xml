@@ -27,6 +27,7 @@
 			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
+		<multipart-config></multipart-config><!-- 업로드 필수조건2 multipart-config-->
 	</servlet>
 		
 	<servlet-mapping>

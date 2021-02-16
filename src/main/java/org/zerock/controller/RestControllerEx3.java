@@ -21,8 +21,8 @@ public class RestControllerEx3 {
 		return "spring";
 	}
 	
-	@RequestMapping("/ex2/{val}") // path variable
-	public String method2(@PathVariable("val") String value) {
+	@RequestMapping("/ex2/{cat}") // path variable
+	public String method2(@PathVariable("cat") String value) {
 		log.info("method2");
 		log.info(value);
 		
