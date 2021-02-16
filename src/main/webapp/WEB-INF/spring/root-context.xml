@@ -8,15 +8,20 @@
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	<bean id="ociConfigPath" class="java.lang.String">
+		<constructor-arg value="/home/opc/oci/config"></constructor-arg>
+	</bean>
 
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 
 		<!-- <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property> 
 			<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:orcl"></property> -->
-	 	<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
-		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@db202102021120_high?TNS_ADMIN=/home/opc/teamwallet"></property>
+		<property name="driverClassName"
+			value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
+		<property name="jdbcUrl"
+			value="jdbc:log4jdbc:oracle:thin:@db202101121035_high?TNS_ADMIN=/home/opc/wallet"></property>
 		<property name="username" value="admin"></property>
-		<property name="password" value="Fivefivefive5"></property>
+		<property name="password" value="Qwerasdf1234!"></property>
 		<property name="maximumPoolSize" value="2"></property>
 
 

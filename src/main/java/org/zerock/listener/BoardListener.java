@@ -31,10 +31,11 @@ public class BoardListener implements ServletContextListener {
 	public void contextInitialized(ServletContextEvent sce) {
 		ServletContext app = sce.getServletContext();
 		
+		String staticPath = 
+				"https://objectstorage.ap-seoul-1.oraclecloud.com/n/cnis2arkdfkp/b/bucket-20210216-1418/o/";
 		String contextRoot = app.getContextPath();
-		
 		app.setAttribute("root", contextRoot);
-
+		app.setAttribute("staticPath", staticPath); //application영역에 들어갓으니 EL로 사용가능 
 	}
 
 }

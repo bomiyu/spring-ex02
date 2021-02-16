@@ -37,12 +37,12 @@ $(document).ready(function() {
 
 	<div class="container-sm">
 		<div class="row">
-			<div class="col-12 col-sm-6 offset-sm-3">
+			<div class="col-12 col-lg-6 offset-lg-3">
 				<h1>게시물 수정</h1>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-12 col-sm-6 offset-sm-3">
+			<div class="col-12 col-lg-6 offset-lg-3">
 
 				<form id="modify-form" method="post" action="${root }/board/modify">
 					<div class="form-group">
@@ -67,11 +67,9 @@ $(document).ready(function() {
 
 					<input type="hidden" value="${cri.pageNum }" name="pageNum" />
 					<input type="hidden" value="${cri.amount }" name="amount" />
-					<input type="hidden" value="${cri.type }" name="type" />
 					<input type="hidden" value="${cri.keyword }" name="keyword" />
+					<input type="hidden" value="${cri.type }" name="type" />
 					<button type="submit" class="btn btn-primary">수정</button>
-					
-		
 					<button id="remove-btn" type="submit" class="btn btn-danger">삭제</button>
 				</form>
 			</div>
